@@ -1,0 +1,50 @@
+{% extends 'ordersapp/base.html' %}
+
+{% block content %}
+{% if unformed_orders %}
+    <h3>Не обработанные заявки </h3>
+    <div class="pure-g">
+        <span class="pure-u-1-4">Имя пользователя</span>
+        <span class="pure-u-1-4">Телефон</span>
+        <span class="pure-u-1-4">Статус заказа</span>
+        <span class="pure-u-1-4"></span>
+    </div>
+
+    {% for object in object_list %}
+        {%if object.status == "FM" %}
+            <div class = "pure-g order-block">
+                <span class="pure-u-1-4">{{object.userName}}</span>
+                <span class="pure-u-1-4">{{ object.phone }}</span>
+                <span class="pure-u-1-4">{{ object.status }}</span>
+                <a href="{% url 'order:assign_ticket_to_me' object.pk %}" class="pure-u-1-4 pure-button pure-button-primary button-success" data-id="{{object.pk}}"> Забрать </a>
+            </div>
+        {% endif %}
+        
+
+    {% endfor %}
+
+{%endif%}
+
+<h3>Остальные заявки </h3>
+<div class="pure-g">
+    <span class="pure-u-1-4">Имя пользователя</span>
+    <span class="pure-u-1-4">Телефон</span>
+    <span class="pure-u-1-4">Статус заказа</span>
+    <span class="pure-u-1-4">Исполнитель</span>
+</div>
+
+{% for object in object_list %}
+    {%if object.status != "FM" %}
+        <div class = "pure-g order-block">
+            <span class="pure-u-1-4">{{object.userName}}</span>
+            <span class="pure-u-1-4">{{ object.phone }}</span>
+            <span class="pure-u-1-4">{{ object.status }}</span>
+            <span class="pure-u-1-4">{{ object.worker.last_name }}</span>
+            <a href=" {% url 'order:order_details' object.pk %}" class = " pure-u-1-1 pure-button pure-button-primary button-success">Перейти в заявку</a>
+        </div>
+    {% endif %}
+    
+
+{% endfor %}
+
+{% endblock content %}

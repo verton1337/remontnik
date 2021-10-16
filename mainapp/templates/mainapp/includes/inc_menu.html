@@ -1,0 +1,11 @@
+{% load static %}
+
+
+<div class="link-menu">
+            <ul class="pure-g">
+                <li class="pure-u-1-4"><a href="{% url 'main:contacts' %}"><img src="{% static 'img/phone.png' %}" alt="contacts"><span>Контакты</span></a></li>
+                <li class="pure-u-1-4"><a href="{% url 'order:new_order' %}"><img src="{% static 'img/order.png' %}" alt="order"><span>Заказ</span></a></li>
+                <li class="pure-u-1-4"><a href="{% url 'main:mainpage' %}"><img src="{% static 'img/portfolio.png' %}" alt="portfolio"><span>Портфолио</span></a></li>
+                <li class="pure-u-1-4"><a href="{% url 'main:work' %}"><img src="{% static 'img/work.png' %}" alt="work-types"><span>Виды работ</span></a></li>
+            </ul>
+</div>

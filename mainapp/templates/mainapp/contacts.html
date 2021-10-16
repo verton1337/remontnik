@@ -1,0 +1,50 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+ <div class="main">
+        <h2>Как нас найти?</h2>
+        <div class="contats">
+            <div class="pure-g">
+
+        
+                <div class="pure-u-1-1">
+                    <h3>Вы можете позвонить нам</h3>
+                    <span>
+                        <a href="tel:+78888888888">
+                            8 888 888 88 88
+                        </a>
+                    </span>
+                </div>
+
+                <div class="pure-u-1-1">
+                    <h3>И написать на почту</h3>
+                    <span>help@ремонтник.online</span>
+                </div>
+
+                <div class="pure-u-1-1">
+                    <h3>Наши социальные сети</h3>
+                    <span>
+                        <a href="#"class="icons" ><img src=" {% static '/img/icons/vk.png' %} " alt="" class="icons"></a>
+                        <a href="#"class="icons"><img src="  {% static '/img/icons/instagram.png' %}  " alt="" class="icons"> </a>
+                        <a href="#"class="icons"><img src=" {% static '/img/icons/ok.png' %} " alt="" class="icons"></a>
+                    </span>
+                </div>
+                <div class="pure-u-1-1">
+                    <h3>Вы также можете оставить заявку на обратный звонок и наш специалист свяжется с вами</h3>
+                    <div class="pure-g">
+                        <form class="pure-form pure-form-aligned pure-u-1-1" action="" method="post">
+                            <fieldset>
+                                {% csrf_token %}
+                                {{ form.as_p }} 
+                                <button type="submit" class="pure-button pure-button-primary button-success">Позвоните мне</button>
+                            </fieldset>
+                        </form>
+                        <span class="pure-u-1-1">Нажимая кнопку "Позвоните мне", вы соглашаетесь с политикой конфиденциальности</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+{% endblock content %}

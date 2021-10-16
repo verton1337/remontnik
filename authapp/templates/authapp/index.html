@@ -1,0 +1,21 @@
+{% extends 'authapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="main">
+
+        
+ 
+        <form class="pure-form pure-form-aligned " action=" {% url 'auth:login' %} " method="post">{% csrf_token %}
+        <fieldset>
+            {{ form.as_p }} 
+            <button type="submit" class="pure-button pure-button-primary button-success">Войти</button>
+        </fieldset>
+</form>
+
+<a href=" {% url 'main:mainpage' %} ">На главную</a>
+</div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,11 @@
+
+{% load static %}
+
+<span>Вы вошли как {{ user.first_name }}</span>
+<div class="link-menu">
+            <ul class="pure-g">
+                <li class="pure-u-1-4"><a href="{% url 'order:worker_orders' %}"><img src="{% static 'img/order.png' %}" alt="order"><span>Мои заказы</span></a></li>
+                <li class="pure-u-1-4"><a href="{% url 'order:orders_list' %}"><img src="{% static 'img/work.png' %}" alt="work-types"><span>Все заказы</span></a></li>
+                <li class="pure-u-1-4"><a href=" {% url 'auth:logout' %}"><img src="{% static 'img/work.png' %}" alt="work-types"><span>Выйти</span></a></li>
+            </ul>
+</div>
