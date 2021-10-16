@@ -97,7 +97,7 @@ fieldset{
     padding-left: 5px;
     margin: auto;
 }
-.work-types li{
+.work-types{
     font-weight: bolder;
     font-size: 16px;
 }
@@ -108,8 +108,8 @@ fieldset{
     margin-top: 3px;
 }
 .work-types-2lvl{
-    margin-left: 20px;
+    margin-left: 40px;
     font-weight:normal;
-    
+    list-style-type: circle;
     font-size: 14px;
 }
