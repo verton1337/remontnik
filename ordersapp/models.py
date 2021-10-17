@@ -28,4 +28,4 @@ class Order(models.Model):
     worker = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
     description = models.TextField(max_length=512, blank=True, verbose_name="Описание заказа")
     created = models.DateTimeField(verbose_name='создан', auto_now_add=True, null=True)
-    updated = models.DateTimeField(verbose_name='обновлен', auto_now=True)
+    updated = models.DateTimeField(verbose_name='обновлен', auto_now=True, null=True)
