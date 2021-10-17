@@ -33,7 +33,7 @@ class ListOrdersView(ListView):
     template_name = "ordersapp/orders_list.html"
     model = Order
     def  get_queryset(self):
-        return Order.objects.all().select_related().exclude(status = "CNC")
+        return Order.objects.all().select_related().exclude(status__in = ("CNC", "RDY"))
 
     def get_context_data(self, **kwargs):
         data = super(ListOrdersView, self).get_context_data(**kwargs)
