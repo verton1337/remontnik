@@ -6,6 +6,10 @@ from ordersapp.forms import OrderForm, UpdateOrderForm
 from ordersapp.models import Order
 from django.urls import reverse, reverse_lazy
 from django.shortcuts import get_object_or_404
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializers import OrderSerializer
+from rest_framework import viewsets
 
 # Create your views here.
 
@@ -88,6 +92,17 @@ class WorkerOrdersView(ListView):
 
     def  get_queryset(self):
         return Order.objects.filter(worker=self.request.user.pk).select_related().exclude(status__in = ("CNC", "RDY"))
+
+
+class OrderAPI(viewsets.ModelViewSet):
+    
+    serializer_class = OrderSerializer
+    queryset = Order.objects.all()
+    def put(self, request, *args, **kwargs):
+        item = Order.objects.create(userName = request.data['userName'], phone = request.data['phone'])
+        item.save()
+        return Response({'msg':'ok', 'status':200})
+
 
     
 
